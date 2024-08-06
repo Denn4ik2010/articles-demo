@@ -1,3 +1,4 @@
 dist
 node_modules
 git.txt
+src\test.ts

@@ -51,15 +51,13 @@ app.post('/articles', async (req: Request, res: Response) => {
 app.delete('/articles/:id', async (req: Request, res: Response) => {
     const id: number = +req.params.id;
 
-    // Знаходження індексу статті за id
     const articleIndex: number = db.findIndex((val) => val.id === id);
 
     if (articleIndex !== -1) {
-        // Видалення статті з масиву
         db.splice(articleIndex, 1);
-        return res.status(204).send(); // Повертаємо статус 204 No Content без повідомлення
+        return res.status(204).send();
     } else {
-        return res.status(404).json('Article not found'); // Повертаємо 404 Not Found, якщо стаття не знайдена
+        return res.status(404).json('Article not found');
     }
 });
 
